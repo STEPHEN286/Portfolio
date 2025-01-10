@@ -45,7 +45,7 @@ export default function Contact() {
                     </div>
                     <div className="text-gray-600">
                         <i className="fas fa-envelope mr-2"></i>
-                        john.smith@example.com
+                        kwofie286@gmail.com
                     </div>
                     <div className="text-gray-600">
                         <i className="fas fa-map-marker-alt mr-2"></i>

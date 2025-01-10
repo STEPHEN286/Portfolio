@@ -1,22 +1,87 @@
-function Navbar() {
-  return (
-    <nav className="">
-    <div className="max-w-8xl mx-auto px-4 bg-white sm:px-6 lg:px-8 shadow-sm">
-        <div className="flex justify-between h-16">
-            <div className="flex items-center">
-                <a href="r" className="text-xl font-bold text-custom">SAK</a>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-                <a href="#about" className="text-gray-700 hover:text-custom">About</a>
-                <a href="#skills" className="text-gray-700 hover:text-custom">Skills</a>
-                <a href="#projects" className="text-gray-700 hover:text-custom">Projects</a>
-                <a href="#contact" className="text-gray-700 hover:text-custom">Contact</a>
-                <a href="R" className="bg-black text-white px-4 py-2 !rounded-button">Resume</a>
-            </div>
-        </div>
-    </div>
-</nav>
+import { useState } from "react";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
+function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
+  const links = [
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+  return (
+    <nav className="bg-white shadow-sm">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
+          {/* Logo */}
+          <a href="/" className="text-xl font-bold text-custom">
+            SAK
+          </a>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-gray-700 hover:text-custom"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="R"
+              className="bg-orange-600 text-white px-4 py-2 !rounded-button"
+            >
+              Resume
+            </a>
+          </div>
+
+          {/* Hamburger Menu Button */}
+          <button
+            onClick={toggleMenu}
+            type="button"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-custom"
+          >
+            {isMenuOpen ? (
+              <AiOutlineClose className="h-6 w-6" />
+            ) : (
+              <AiOutlineMenu className="h-6 w-6" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="space-y-1 px-2 pb-3 pt-2">
+              {links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-custom"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="R"
+                onClick={closeMenu}
+                className="block bg-orange-600 text-white px-3 py-2 text-base font-medium rounded-md"
+              >
+                Resume
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 }
 

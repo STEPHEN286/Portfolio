@@ -27,14 +27,14 @@ function About() {
             </div>
           </div>
           <div className="space-y-4">
-            <div className="border-l-4 border-black pl-4 py-2">
+            <div className="border-l-4 border-orange-700 pl-4 py-2">
               <h3 className="font-semibold text-gray-900">Software Engineer</h3>
               <p className="text-gray-600">Self-Employed • 04/2023 - Present</p>
               <p className="text-gray-500 text-sm">
                 Built desktop and web applications, optimized database solutions, and delivered client-focused results.
               </p>
             </div>
-            <div className="border-l-4 border-black  pl-4 py-2">
+            <div className="border-l-4 border-orange-700  pl-4 py-2">
               <h3 className="font-semibold text-gray-900">UI/UX & Graphic Designer</h3>
               <p className="text-gray-600">Self-Employed • 01/2021 - Present</p>
               <p className="text-gray-500 text-sm">
