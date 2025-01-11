@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif; 
+    scroll-behavior: smooth;
+  }
+  body {
+    /* background-color: #f9f9f9;  */
+    background-image: url("./asset/images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+}

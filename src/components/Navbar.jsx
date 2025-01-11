@@ -20,7 +20,7 @@ function Navbar() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <a href="/" className="text-xl font-bold text-custom">
-            SAK
+            StepTech
           </a>
 
           {/* Desktop Menu */}
@@ -34,12 +34,13 @@ function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="R"
-              className="bg-orange-600 text-white px-4 py-2 !rounded-button"
-            >
-              Resume
-            </a>
+           <a
+  href="https://drive.google.com/uc?id=1ccceQK-tED3DbiETYYZDfDxtpmhmXsYc&export=download"
+  download="STEPHEN-ADJEI-KWOFIE-CV"
+  className="bg-orange-600 text-white px-4 py-2 !rounded-button"
+>
+  Resume
+</a>
           </div>
 
           {/* Hamburger Menu Button */}

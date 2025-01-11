@@ -2,6 +2,8 @@ import React from 'react'
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 
 export default function Contact() {
+
+    
   return (
     <section id="contact" className="py-20 bg-gray-50">
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,7 +29,7 @@ export default function Contact() {
                     <textarea rows="4" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-custom focus:border-custom" placeholder="Your message"></textarea>
                 </div>
                 <div>
-                    <button type="submit" className="w-full bg-custom text-white py-2 px-4 !rounded-button hover:bg-custom-dark transition duration-300">
+                    <button type="submit" className="w-full bg-black text-white py-2 px-4 !rounded-button hover:bg-custom-dark transition duration-300">
                         Send Message
                     </button>
                 </div>
