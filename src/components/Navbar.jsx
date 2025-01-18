@@ -3,7 +3,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const resumeFIle =  process.env.REACT_APP_RESUME_FILE
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -18,12 +18,12 @@ function Navbar() {
     <nav className="bg-white shadow-sm fixed left-0 top-0 w-full z-10 ">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
+          
           <a href="/" className="text-xl font-bold text-custom">
             StepTech
           </a>
 
-          {/* Desktop Menu */}
+          
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <a
@@ -35,7 +35,8 @@ function Navbar() {
               </a>
             ))}
            <a
-  href="https://drive.google.com/uc?id=1ccceQK-tED3DbiETYYZDfDxtpmhmXsYc&export=download"
+          
+  href={`${resumeFIle}`}
   download="STEPHEN-ADJEI-KWOFIE-CV"
   className="bg-orange-600 text-white px-4 py-2 !rounded-button"
 >
@@ -43,7 +44,7 @@ function Navbar() {
 </a>
           </div>
 
-          {/* Hamburger Menu Button */}
+         
           <button
             onClick={toggleMenu}
             type="button"
@@ -57,7 +58,7 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+       
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
@@ -72,7 +73,8 @@ function Navbar() {
                 </a>
               ))}
               <a
-                href="R"
+                href={`${resumeFIle}`}
+  download="STEPHEN-ADJEI-KWOFIE-CV"
                 onClick={closeMenu}
                 className="block bg-orange-600 text-white px-3 py-2 text-base font-medium rounded-md"
               >
