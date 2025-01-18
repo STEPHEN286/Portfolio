@@ -15,7 +15,7 @@ export function ImageDrawer({isOpen, setIsOpen}) {
     <>
       
       <Drawer open={isOpen} onClose={handleClose} position="right" className="md:overflow-hidden ">
-        {/* <Drawer.Header /> */}
+       
         <Drawer.Items>
          
          <div className="flex flex-col items-center justify-center h-screen">
