@@ -1,4 +1,5 @@
 import About from "./components/About";
+import BackgroundComponent from "./components/Background";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
@@ -12,9 +13,12 @@ function App() {
   <>
       <Navbar />
       <Hero />
+      
       <About />
+      <BackgroundComponent />
       <Skills />
       <Projects />
+      <BackgroundComponent />
       <Contact />
       <Footer />
   </>

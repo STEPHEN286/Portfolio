@@ -1,0 +1,8 @@
+{
+    "framework": "react",
+    "tailwind": {
+      "config": "./tailwind.config.js",
+      "css": "./src/index.css"
+    }
+  }
+  

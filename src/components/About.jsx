@@ -17,8 +17,8 @@ function About() {
                 <span className="text-gray-500">Years Experience</span>
               </div>
               <div className="text-center">
-                <span className="block text-2xl font-bold text-custom">5+</span>
-                <span className="text-gray-500">Projects Completed</span>
+                <span className="block text-2xl font-bold text-custom">3+</span>
+                <span className="text-gray-500">Projects </span>
               </div>
               <div className="text-center">
                 <span className="block text-2xl font-bold text-custom">3+</span>
@@ -29,7 +29,7 @@ function About() {
           <div className="space-y-4">
             <div className="border-l-4 border-orange-700 pl-4 py-2">
               <h3 className="font-semibold text-gray-900">Software Engineer</h3>
-              <p className="text-gray-600">Self-Employed • 04/2023 - Present</p>
+              <p className="text-gray-600">Freelancer • 04/2023 - Present</p>
               <p className="text-gray-500 text-sm">
                 Built desktop and web applications, optimized database solutions, and delivered client-focused results.
               </p>
