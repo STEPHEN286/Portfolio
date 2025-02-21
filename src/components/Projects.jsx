@@ -1,58 +1,23 @@
-import React from 'react'
-import ecommerceImage from "../asset/images/E-commerce-Website.jpg"
-import votingImage from "../asset/images/evoting.jpg"
-import portfolio from "../asset/images/MAIN@1x.png"
-import jecgam from "../asset/images/jec-gam.jpg"
-
-const projects = [
-  {
-    id: 1,
-    title: "E-commerce Platform",
-    description: "A frontend e-commerce web solution with seamless API integration for product management, user authentication, and order processing.",
-    image: ecommerceImage,
-    technologies: ["React", "Tailwind CSS"],
-    // codeLink: "#", 
-    demoLink: "https://adecobs-d27c8.web.app", 
-  },
-  {
-    id: 2,
-    title: "Portfolio Website",
-    description: "A responsive portfolio website showcasing projects, skills, and achievements using modern frontend technologies.",
-    image: portfolio,
-    technologies: ["HTML", "CSS", "JavaScript"],
-    // codeLink: "/",
-    demoLink: "https://portfolio-25a10.firebaseapp.com/",
-  },
-  {
-    id: 3,
-    title: "Scholarship Website for JEC and GAM",
-    description: "A scholarship platform originally built with HTML and Bootstrap, now transitioning to React JS and Tailwind CSS for a modern, dynamic, and responsive user interface. The platform helps JEC and GAM students explore, apply, and track scholarships with ease.",
-    image: jecgam,  // Replace with the appropriate image URL for the scholarship website
-    technologies: ["React JS", "Tailwind CSS", "Node.js", "SQL Server"],
-    codeLink: "", 
-    demoLink: "https://jecandgam.web.app/", 
-  }
-,  
-  {
-    id: 3,
-    title: "E-voting System",
-    description: "A secure and scalable E-voting system built with C#, WinForms, and SQL Server for real-time vote management and result analysis. Currently transitioning to Electron with React for a modern, cross-platform user interface",
-    image: votingImage,
-    technologies: ["C#", "WinForms", "SQL Server"],
-    // codeLink: "#", 
-    // demoLink: "#", 
-  }
-
-];
+import useFetch from "../hook/useFetch";
 
 export default function Projects() {
+  const { projects, loading, error } = useFetch();
+
+  if (loading) return <p>Loading projects...</p>;
+  if (error) return <p>Error loading projects: {error.message}</p>;
+  // fetchProjects ()
   return (
     <section id="projects" className="py-20 bg-white">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Featured Projects
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div
+              key={project.id}
+              className="bg-white rounded-lg shadow-sm overflow-hidden"
+            >
               <img
                 className="w-full h-48 object-cover"
                 src={project.image}
@@ -72,7 +37,6 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex space-x-4">
-                  
                   {project.codeLink && (
                     <a
                       href={project.codeLink}
@@ -100,6 +64,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-
-  )
+  );
 }

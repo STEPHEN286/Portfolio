@@ -3,7 +3,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const resumeFile =  process.env.REACT_APP_RESUME_FILE
+   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -36,11 +36,11 @@ function Navbar() {
             ))}
            <a
           
-  href={`${resumeFile}`}
+  href={ process.env.REACT_APP_RESUME_FILE}
   download="STEPHEN-ADJEI-KWOFIE-CV"
   className="bg-orange-600 text-white px-4 py-2 !rounded-button"
 >
-  Resume
+  Download Resume
 </a>
           </div>
 
@@ -73,7 +73,7 @@ function Navbar() {
                 </a>
               ))}
               <a
-                href={`${resumeFile}`}
+                href={process.env.REACT_APP_RESUME_FILE}
   download="STEPHEN-ADJEI-KWOFIE-CV"
                 onClick={closeMenu}
                 className="block bg-orange-600 text-white px-3 py-2 text-base font-medium rounded-md"
