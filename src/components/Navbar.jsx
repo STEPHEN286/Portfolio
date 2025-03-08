@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
    
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -15,40 +24,37 @@ function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-sm fixed left-0 top-0 w-full z-10 ">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+    <nav className={`fixed left-0 top-0 w-full z-10 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-white/50 backdrop-blur-sm'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-20 items-center">
           
-          <a href="/" className="text-xl font-bold text-custom">
+          <a href="/" className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
             StepTech
           </a>
 
-          
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-custom"
+                className="text-gray-700 hover:text-custom transition-colors duration-200 text-sm font-medium"
               >
                 {link.label}
               </a>
             ))}
-           <a
-          
-  href={ process.env.REACT_APP_RESUME_FILE}
-  download="STEPHEN-ADJEI-KWOFIE-CV"
-  className="bg-orange-600 text-white px-4 py-2 !rounded-button"
->
-  Download Resume
-</a>
+            <a
+              href={process.env.REACT_APP_RESUME_FILE}
+              download="STEPHEN-ADJEI-KWOFIE-CV"
+              className="bg-gradient-to-r from-gray-900 to-gray-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Download CV
+            </a>
           </div>
 
-         
           <button
             onClick={toggleMenu}
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-custom"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-900"
           >
             {isMenuOpen ? (
               <AiOutlineClose className="h-6 w-6" />
@@ -58,27 +64,26 @@ function Navbar() {
           </button>
         </div>
 
-       
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+          <div className="md:hidden absolute left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg">
+            <div className="space-y-2 px-4 pt-2 pb-4">
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={closeMenu}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-custom"
+                  className="block px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-custom rounded-lg transition-colors duration-200"
                 >
                   {link.label}
                 </a>
               ))}
               <a
                 href={process.env.REACT_APP_RESUME_FILE}
-  download="STEPHEN-ADJEI-KWOFIE-CV"
+                download="STEPHEN-ADJEI-KWOFIE-CV"
                 onClick={closeMenu}
-                className="block bg-orange-600 text-white px-3 py-2 text-base font-medium rounded-md"
+                className="block bg-gradient-to-r from-gray-900 to-gray-600 text-white px-4 py-2.5 text-base font-medium rounded-lg text-center mt-4"
               >
-                Resume
+                Download CV
               </a>
             </div>
           </div>
