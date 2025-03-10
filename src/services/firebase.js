@@ -43,6 +43,54 @@ try {
   throw error;
 }
 
+// Sample project data
+const sampleProjects = [
+  {
+    id: 'project1',
+    title: 'Portfolio Website',
+    description: 'A modern portfolio website built with React and Firebase',
+    technologies: ['React', 'Firebase', 'Tailwind CSS'],
+    imageUrl: 'portfolio.jpg',
+    liveUrl: 'https://your-portfolio.com',
+    githubUrl: 'https://github.com/yourusername/portfolio'
+  },
+  {
+    id: 'project2',
+    title: 'Desktop Application',
+    description: 'Windows desktop application built with C# and WinForms',
+    technologies: ['C#', 'WinForms', 'SQL Server'],
+    imageUrl: 'desktop-app.jpg',
+    githubUrl: 'https://github.com/yourusername/desktop-app'
+  },
+  {
+    id: 'project3',
+    title: 'UI/UX Design Project',
+    description: 'Modern user interface design for a mobile application',
+    technologies: ['Figma', 'Adobe XD', 'Illustrator'],
+    imageUrl: 'ui-design.jpg',
+    behanceUrl: 'https://behance.net/yourusername/ui-project'
+  }
+];
+
+// Function to initialize projects in Firebase
+export const initializeProjects = async () => {
+  try {
+    const projectsRef = ref(database, 'projects');
+    const snapshot = await get(projectsRef);
+    
+    // Only initialize if no projects exist
+    if (!snapshot.exists()) {
+      await set(projectsRef, sampleProjects);
+      console.log('Sample projects initialized successfully');
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.error('Error initializing projects:', error);
+    return false;
+  }
+};
+
 export const getProjectCount = async () => {
   try {
     const projectsRef = ref(database, 'projects');
@@ -50,7 +98,7 @@ export const getProjectCount = async () => {
     
     if (snapshot.exists()) {
       const projects = snapshot.val();
-      return Object.keys(projects).length;
+      return Array.isArray(projects) ? projects.length : Object.keys(projects).length;
     }
     return 0;
   } catch (error) {
@@ -66,12 +114,28 @@ export const fetchProjects = async () => {
     
     if (snapshot.exists()) {
       const projects = snapshot.val();
-      return Object.values(projects);
+      return Array.isArray(projects) ? projects : Object.values(projects);
     }
     return [];
   } catch (error) {
     console.error('Error fetching projects:', error);
     return [];
+  }
+};
+
+// Function to add a new project
+export const addProject = async (project) => {
+  try {
+    const projectsRef = ref(database, 'projects');
+    const newProjectRef = push(projectsRef);
+    await set(newProjectRef, {
+      id: newProjectRef.key,
+      ...project
+    });
+    return true;
+  } catch (error) {
+    console.error('Error adding project:', error);
+    return false;
   }
 };
 

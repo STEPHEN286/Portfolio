@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FiClock, FiFolder, FiUsers } from 'react-icons/fi';
-import { getProjectCount } from '../services/firebase';
+import { getProjectCount, initializeProjects } from '../services/firebase';
 import AnimatedElement from './AnimatedElement';
 import 'animate.css';
 
@@ -8,15 +8,23 @@ function About() {
   const [projectCount, setProjectCount] = useState("3+");
 
   useEffect(() => {
-    const fetchCount = async () => {
-      const count = await getProjectCount();
-      setProjectCount(count > 0 ? `${count}+` : "3+");
+    const fetchData = async () => {
+      try {
+        // First try to initialize projects if none exist
+        await initializeProjects();
+        // Then get the count
+        const count = await getProjectCount();
+        setProjectCount(count > 0 ? `${count}+` : "3+");
+      } catch (error) {
+        console.error('Error fetching project count:', error);
+        setProjectCount("3+");
+      }
     };
-    fetchCount();
+    fetchData();
   }, []);
 
   const stats = [
-    { icon: FiClock, value: "3+", label: "Years Experience" },
+    { icon: FiClock, value: "2+", label: "Years Experience" },
     { icon: FiFolder, value: projectCount, label: "Projects" },
     { icon: FiUsers, value: "3+", label: "Happy Clients" }
   ];

@@ -91,7 +91,7 @@ export default function Skills() {
           duration="1s"
           threshold={0.5}
         >
-          <h2 className="text-3xl font-bold text-center mb-12">Skills & Expertise</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Skills & Expertise</h2>
         </AnimatedElement>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -104,29 +104,29 @@ export default function Skills() {
               threshold={0.2}
             >
               <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
-                <h3 className="text-lg font-semibold mb-4">{skill.category}</h3>
-                {skill.type === "progress" ? (
-                  <div className="space-y-3">
+              <h3 className="text-lg font-semibold mb-4">{skill.category}</h3>
+              {skill.type === "progress" ? (
+                <div className="space-y-3">
                     {skill.details.map((item, itemIndex) => (
                       <div key={item.name} className="relative">
-                        <div className="flex justify-between mb-1">
-                          <span className="text-gray-600">{item.name}</span>
-                          <span className="text-custom">{item.percentage}%</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div
+                      <div className="flex justify-between mb-1">
+                        <span className="text-gray-600">{item.name}</span>
+                        <span className="text-custom">{item.percentage}%</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-2">
+                        <div
                             className="bg-gradient-to-r from-gray-900 to-gray-600 h-2 rounded-full transition-all duration-1000"
                             style={{ 
                               width: `${item.percentage}%`,
                               transitionDelay: `${0.3 + (itemIndex * 0.2)}s`
                             }}
-                          ></div>
-                        </div>
+                        ></div>
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-2 gap-4">
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
                     {skill.details.map((item, itemIndex) => (
                       <div 
                         key={item.name} 
@@ -136,12 +136,12 @@ export default function Skills() {
                         }}
                       >
                         <span className="text-gray-700 text-xl">{item.icon}</span>
-                        <span>{item.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+                      <span>{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
             </AnimatedElement>
           ))}
         </div>

@@ -19,7 +19,7 @@ function Hero() {
       // { icon: FiTwitter, href: "https://twitter.com/yourusername", label: "Twitter" },
       { icon: FaBehance, href: "https://www.behance.net/KGEEGRAPHIKS", label: "Behance" },
       { icon: FaDribbble, href: "https://dribbble.com/kwofie-286", label: "Dribbble" },
-      { icon: FaTiktok, href: "https://tiktok.com/@yourusername", label: "TikTok" },
+      { icon: FaTiktok, href: "https://www.tiktok.com/@k.geegraphiks?_t=ZM-8uYKLzg2bA7&_r=1", label: "TikTok" },
       { icon: FiGlobe, href: "https://bio.site/k.geeGraphic", label: "Graphic Design Portfolio" }
     ];
 
