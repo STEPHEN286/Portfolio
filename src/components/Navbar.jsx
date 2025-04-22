@@ -21,15 +21,16 @@ function Navbar() {
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
     { href: "#contact", label: "Contact" },
+    { href: "https://kgeegraphiks.web.app/", label: "Graphics Portfolio", isExternal: true },
   ];
 
   return (
-    <nav className={`fixed left-0 top-0 w-full z-10 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-white/50 backdrop-blur-sm'}`}>
+    <nav className={`fixed left-0 top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-white/50 backdrop-blur-sm'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           
           <a href="/" className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-            StepTech
+            Step<span className="text-indigo-700">Tech</span>
           </a>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -37,6 +38,8 @@ function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                target={link.isExternal ? "_blank" : undefined}
+                rel={link.isExternal ? "noopener noreferrer" : undefined}
                 className="text-gray-700 hover:text-custom transition-colors duration-200 text-sm font-medium"
               >
                 {link.label}
@@ -45,9 +48,10 @@ function Navbar() {
             <a
               href={process.env.REACT_APP_RESUME_FILE}
               download="STEPHEN-ADJEI-KWOFIE-CV"
-              className="bg-gradient-to-r from-gray-900 to-gray-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
+              className="bg-indigo-700 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
             >
               Download CV
+
             </a>
           </div>
 
@@ -71,6 +75,8 @@ function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
+                  target={link.isExternal ? "_blank" : undefined}
+                  rel={link.isExternal ? "noopener noreferrer" : undefined}
                   onClick={closeMenu}
                   className="block px-3 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-custom rounded-lg transition-colors duration-200"
                 >
@@ -81,7 +87,7 @@ function Navbar() {
                 href={process.env.REACT_APP_RESUME_FILE}
                 download="STEPHEN-ADJEI-KWOFIE-CV"
                 onClick={closeMenu}
-                className="block bg-gradient-to-r from-gray-900 to-gray-600 text-white px-4 py-2.5 text-base font-medium rounded-lg text-center mt-4"
+                className="block  bg-indigo-700  text-white px-4 py-2.5 text-base font-medium rounded-lg text-center mt-4"
               >
                 Download CV
               </a>

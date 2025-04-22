@@ -10,7 +10,7 @@
   }
   body {
     /* background-color: #f9f9f9;  */
-    background-image: url("./asset/images/bg.jpg");
+    /* background-image: url("./asset/images/bg.jpg"); */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

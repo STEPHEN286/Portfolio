@@ -105,8 +105,8 @@ export default function Contact() {
                 type="submit"
                 className={`w-full py-2 px-4 rounded-lg text-white transition duration-300 ${
                   isLoading
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-black hover:bg-custom-dark'
+                    ? 'bg-indigo-400 cursor-not-allowed'
+                    : 'bg-indigo-700 hover:bg-custom-dark'
                 }`}
               >
                 {isLoading ? 'Sending...' : 'Send Message'}
